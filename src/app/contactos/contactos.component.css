@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  header {
+    background-color: tan;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #fff;
+    font-size: 32px;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-info h2,
+  .contact-form h2 {
+    color: tan;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-info p {
+    margin-bottom: 10px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .contact-form button {
+    padding: 10px 20px;
+    background-color: tan;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+.chat-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chat-header {
+    background-color: tan;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .chat-header h2 {
+    color: #fff;
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .chat-body {
+    padding: 20px;
+  }
+  
+  .message {
+    margin-bottom: 20px;
+  }
+  
+  .user-message {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .bot-message {
+    background-color: tan;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .chat-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+  }
+  
+  .chat-footer input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  

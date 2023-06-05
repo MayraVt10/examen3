@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilos del encabezado */
+  header {
+    background-color: tan;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #fff;
+    font-size: 32px;
+  }
+  
+  /* Estilos del contenido principal */
+  main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos del formulario de pedidos */
+  .order-form {
+    margin-bottom: 20px;
+  }
+  
+  .order-form h2 {
+    color: tan;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .order-form form {
+    /* Estilos del formulario */
+  }
+  
+  /* Estilos de la lista de carrito */
+  .cart-list {
+    margin-bottom: 20px;
+  }
+  
+  .cart-list h2 {
+    color: tan;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .cart-list ul {
+    /* Estilos de la lista de carrito */
+  }
+  
+  /* Estilos del menú de categorías */
+  .category-menu {
+    margin-bottom: 20px;
+  }
+  
+  .category-menu h2 {
+    color: tan;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .category-menu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .category-menu li {
+    margin-bottom: 10px;
+  }
+  
+  .category-button {
+    padding: 10px;
+    background-color: tan;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Estilos de la lista de productos */
+  .product-list {
+    display: none;
+  }
+  
+  .product-list.active {
+    display: block;
+  }
+  
+  .product-list h3 {
+    color: tan;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .product-card {
+    /* Estilos de las tarjetas de producto */
+  }

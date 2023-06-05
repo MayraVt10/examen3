@@ -1,0 +1,21 @@
+.button-container {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    background-color: tan;
+    border-radius: 10px;
+    color: #f5f4f4;
+    z-index: 9999; /* Asegura que el elemento esté en frente de los demás */
+  }
+  
+  .menu-container {
+    padding: 10px;
+    background-color: rgb(76, 60, 38);
+  }
+  
+  .menu-item-text {
+    color: tan;
+    padding: 30px;
+    font-size: 18px;
+  }
+  

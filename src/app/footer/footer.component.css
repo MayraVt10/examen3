@@ -1,0 +1,15 @@
+footer {
+    background-color: rgba(75, 74, 74, 0.8);
+    padding: 20px;
+  }
+  
+  .footer-container {
+    text-align: center;
+  }
+  
+  .footer-container p {
+    color: white;
+    font-size: 14px;
+    margin: 0;
+  }
+  

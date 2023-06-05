@@ -1,0 +1,123 @@
+<header>
+    <h1>Tienda de Ferretería</h1>
+  </header>
+
+  <main>
+    <section class="order-form">
+      <h2>Realizar Pedido</h2>
+      <form>
+        <div>
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Ingrese su email" required>
+        </div>
+        <div>
+          <label for="direccion">Dirección de Envío:</label>
+          <input type="text" id="direccion" name="direccion" placeholder="Ingrese su dirección" required>
+        </div>
+        <div>
+          <label for="telefono">Teléfono:</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="Ingrese su teléfono" required>
+        </div>
+        <div>
+          <label for="producto">Producto:</label>
+          <select id="producto" name="producto" required>
+            <option value="">Seleccione un producto</option>
+            <option value="producto1">Producto 1</option>
+            <option value="producto2">Producto 2</option>
+            <option value="producto3">Producto 3</option>
+          </select>
+        </div>
+        <div>
+          <label for="cantidad">Cantidad:</label>
+          <input type="number" id="cantidad" name="cantidad" min="1" required>
+        </div>
+        <button type="submit">Realizar Pedido</button>
+      </form>
+    </section>
+
+    <section class="cart-list">
+      <h2>Carrito de Compras</h2>
+      <ul id="carrito"></ul>
+    </section>
+
+    <section class="category-menu">
+      <h2>Seleccione una categoría</h2>
+      <ul>
+        <li>
+          <button class="category-button" onclick="toggleProducts('herramientas')">Herramientas Manuales</button>
+        </li>
+        <li>
+          <button class="category-button" onclick="toggleProducts('materiales')">Materiales de Construcción</button>
+        </li>
+        <li>
+          <button class="category-button" onclick="toggleProducts('ferreteria')">Ferretería para Puertas y Ventanas</button>
+        </li>
+        <li>
+          <button class="category-button" onclick="toggleProducts('electricos')">Suministros Eléctricos</button>
+        </li>
+      </ul>
+    </section>
+
+    <section id="herramientas" class="product-list">
+      <h3>Herramientas Manuales</h3>
+      <div class="product-card">
+        <img src="herramienta1.jpg" alt="Herramienta 1">
+        <h4>Nombre del Producto</h4>
+        <p>Precio: $X</p>
+        <button onclick="agregarAlCarrito('Nombre del Producto', 'X')">Agregar al Carrito</button>
+      </div>
+      <!-- Agrega más productos de la categoría "Herramientas Manuales" aquí -->
+    </section>
+
+    <section id="materiales" class="product-list">
+      <h3>Materiales de Construcción</h3>
+      <div class="product-card">
+        <img src="material1.jpg" alt="Material 1">
+        <h4>Nombre del Producto</h4>
+        <p>Precio: $X</p>
+        <button onclick="agregarAlCarrito('Nombre del Producto', 'X')">Agregar al Carrito</button>
+      </div>
+      <!-- Agrega más productos de la categoría "Materiales de Construcción" aquí -->
+    </section>
+
+    <section id="ferreteria" class="product-list">
+      <h3>Ferretería para Puertas y Ventanas</h3>
+      <div class="product-card">
+        <img src="puerta1.jpg" alt="Puerta 1">
+        <h4>Nombre del Producto</h4>
+        <p>Precio: $X</p>
+        <button onclick="agregarAlCarrito('Nombre del Producto', 'X')">Agregar al Carrito</button>
+      </div>
+      <!-- Agrega más productos de la categoría "Ferretería para Puertas y Ventanas" aquí -->
+    </section>
+
+    <section id="electricos" class="product-list">
+      <h3>Suministros Eléctricos</h3>
+      <div class="product-card">
+        <img src="electrico1.jpg" alt="Suministro Eléctrico 1">
+        <h4>Nombre del Producto</h4>
+        <p>Precio: $X</p>
+        <button onclick="agregarAlCarrito('Nombre del Producto', 'X')">Agregar al Carrito</button>
+      </div>
+      <!-- Agrega más productos de la categoría "Suministros Eléctricos" aquí -->
+    </section>
+  </main>
+
+  <script>
+    function toggleProducts(category) {
+  const productList = document.getElementById(category);
+  productList.classList.toggle('active');
+}
+
+function agregarAlCarrito(nombreProducto, precioProducto) {
+  const carrito = document.getElementById('carrito');
+  const nuevoProducto = document.createElement('li');
+  nuevoProducto.textContent = `${nombreProducto} - $${precioProducto}`;
+  carrito.appendChild(nuevoProducto);
+}
+
+  </script>

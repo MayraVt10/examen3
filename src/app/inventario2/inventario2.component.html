@@ -1,0 +1,186 @@
+<header>
+    <h1>Inventario</h1>
+  </header>
+
+  <main>
+    <div class="inventory">
+      <div class="inventory-list">
+        <h2>Herramientas Manuales</h2>
+        <ul id="herramientas-list" class="item-list">
+          <!-- Artículos de Herramientas Manuales -->
+        </ul>
+      </div>
+
+      <div class="inventory-list">
+        <h2>Materiales de Construcción</h2>
+        <ul id="materiales-list" class="item-list">
+          <!-- Artículos de Materiales de Construcción -->
+        </ul>
+      </div>
+
+      <div class="inventory-list">
+        <h2>Ferretería para Puertas y Ventanas</h2>
+        <ul id="ferreteria-list" class="item-list">
+          <!-- Artículos de Ferretería para Puertas y Ventanas -->
+        </ul>
+      </div>
+
+      <div class="inventory-list">
+        <h2>Suministros Eléctricos</h2>
+        <ul id="electricos-list" class="item-list">
+          <!-- Artículos de Suministros Eléctricos -->
+        </ul>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="btn-add" class="btn">Agregar</button>
+      <button id="btn-edit" class="btn" disabled>Editar</button>
+      <button id="btn-delete" class="btn" disabled>Borrar</button>
+    </div>
+
+    <div id="form-container" class="form-container">
+      <h2>Agregar Artículo</h2>
+      <form id="item-form" class="item-form">
+        <input type="text" id="input-nombre" placeholder="Nombre del Artículo" required>
+        <input type="text" id="input-imagen" placeholder="Link de la Imagen" required>
+        <input type="number" id="input-precio-mayor" placeholder="Precio por Mayor" required>
+        <input type="number" id="input-precio-menor" placeholder="Precio por Menor" required>
+        <select id="select-categoria" required>
+          <option value="">Seleccione una Categoría</option>
+          <option value="herramientas">Herramientas Manuales</option>
+          <option value="materiales">Materiales de Construcción</option>
+          <option value="ferreteria">Ferretería para Puertas y Ventanas</option>
+          <option value="electricos">Suministros Eléctricos</option>
+        </select>
+        
+        <div class="form-buttons">
+          <button id="btn-submit" class="btn">Agregar</button>
+          <button id="btn-cancel" class="btn">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  <script>
+    // Obtener referencias a los elementos del DOM
+const inventoryList = document.getElementById('inventory-list');
+const addButton = document.getElementById('add-button');
+const cancelButton = document.getElementById('cancel-button');
+const formContainer = document.getElementById('form-container');
+const itemForm = document.getElementById('item-form');
+const editForm = document.getElementById('edit-form');
+const editButton = document.getElementById('edit-button');
+const deleteButton = document.getElementById('delete-button');
+
+// Lista de productos
+let products = [];
+
+// Función para agregar un nuevo producto
+function addProduct() {
+  // Obtener los valores del formulario
+  const name = document.getElementById('name-input').value;
+  const imageLink = document.getElementById('image-link-input').value;
+  const wholesalePrice = document.getElementById('wholesale-price-input').value;
+  const retailPrice = document.getElementById('retail-price-input').value;
+  const category = document.getElementById('category-select').value;
+
+  // Crear un nuevo objeto de producto
+  const product = {
+    name: name,
+    imageLink: imageLink,
+    wholesalePrice: wholesalePrice,
+    retailPrice: retailPrice,
+    category: category
+  };
+
+  // Agregar el producto a la lista
+  products.push(product);
+
+  // Actualizar la lista de productos en el DOM
+  updateProductList();
+
+  // Limpiar el formulario
+  itemForm.reset();
+
+  // Ocultar el formulario de agregar
+  hideForm();
+}
+
+// Función para actualizar la lista de productos en el DOM
+function updateProductList() {
+  // Limpiar la lista antes de actualizarla
+  inventoryList.innerHTML = '';
+
+  // Recorrer la lista de productos y crear elementos de lista para cada producto
+  products.forEach((product, index) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = product.name;
+    listItem.addEventListener('click', () => {
+      showEditForm(index);
+    });
+    inventoryList.appendChild(listItem);
+  });
+}
+
+// Función para mostrar el formulario de agregar
+function showForm() {
+  formContainer.style.display = 'block';
+}
+
+// Función para ocultar el formulario de agregar
+function hideForm() {
+  formContainer.style.display = 'none';
+}
+
+// Función para mostrar el formulario de editar con los datos de un producto específico
+function showEditForm(index) {
+  const product = products[index];
+  editForm.elements['edit-name-input'].value = product.name;
+  editForm.elements['edit-image-link-input'].value = product.imageLink;
+  editForm.elements['edit-wholesale-price-input'].value = product.wholesalePrice;
+  editForm.elements['edit-retail-price-input'].value = product.retailPrice;
+  editForm.elements['edit-category-select'].value = product.category;
+  editButton.setAttribute('data-index', index);
+  editForm.style.display = 'block';
+}
+
+// Función para actualizar los datos de un producto
+function editProduct() {
+  const index = editButton.getAttribute('data-index');
+  const product = products[index];
+  product.name = editForm.elements['edit-name-input'].value;
+  product.imageLink = editForm.elements['edit-image-link-input'].value;
+  product.wholesalePrice = editForm.elements['edit-wholesale-price-input'].value;
+  product.retailPrice = editForm.elements['edit-retail-price-input'].value;
+  product.category = editForm.elements['edit-category-select'].value;
+
+  // Actualizar la lista de productos en el DOM
+  updateProductList();
+
+  // Ocultar el formulario de editar
+  editForm.style.display = 'none';
+}
+
+// Función para eliminar un producto
+function deleteProduct() {
+  const index = editButton.getAttribute('data-index');
+  products.splice(index, 1);
+
+  // Actualizar la lista de productos en el DOM
+  updateProductList();
+
+  // Ocultar el formulario de editar
+  editForm.style.display = 'none';
+}
+
+// Agregar eventos a los botones
+addButton.addEventListener('click', showForm);
+cancelButton.addEventListener('click', hideForm);
+itemForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  addProduct();
+});
+editButton.addEventListener('click', editProduct);
+deleteButton.addEventListener('click', deleteProduct);
+
+  </script>
