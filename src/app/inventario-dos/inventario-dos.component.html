@@ -1,0 +1,43 @@
+<p>inventario-dos works!</p>
+
+<head>
+    <h1>hola</h1>
+  </head>
+  <div class="inventory-container">
+    <h2>Lista de Productos</h2>
+    
+    <div class="add-product-container">
+      <h3>{{ editMode ? 'Editar Producto' : 'Agregar Producto' }}</h3>
+      <form (submit)="editMode ? updateProduct() : addProduct($event)">
+        <div class="form-group">
+          <label for="productName">Nombre del Producto</label>
+          <input type="text" class="form-control" id="productName" name="productName" [(ngModel)]="newProduct.nombre_producto" required>
+        </div>
+        <div class="form-group">
+          <label for="productImage">Imagen</label>
+          <input type="text" class="form-control" id="productImage" name="productImage" [(ngModel)]="newProduct.foto_producto" required>
+        </div>
+        <div class="form-group">
+          <label for="productPrice">Precio</label>
+          <input type="number" class="form-control" id="productPrice" name="productPrice" [(ngModel)]="newProduct.precio_producto" required>
+        </div>
+  
+        <button type="submit" class="btn-submit">{{ editMode ? 'Actualizar' : 'Agregar' }}</button>
+        <button *ngIf="editMode" (click)="cancelEdit()" class="btn-cancel">Cancelar</button>
+      </form>
+    </div>
+  
+    <br><br><br>
+    
+    <div class="product-list-container">
+      <div class="product-card" *ngFor="let product of products; let i = index">
+        <h4>{{ product.nombre_producto }}</h4>
+        <p>{{ product.precio_producto }}</p>
+        <img [src]="product.foto_producto" alt="Imagen del producto" />
+        <button class="btn-edit" (click)="editProduct(i)">Editar</button>
+        <button class="btn-delete" (click)="deleteProduct(product)">Eliminar</button>
+      </div>
+    </div>
+  
+    <br><br><br>
+  </div>

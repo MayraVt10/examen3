@@ -12,7 +12,9 @@ import { FooterComponent } from './footer/footer.component';
 import { ContactosComponent } from './contactos/contactos.component';
 import { PedidoComponent } from './pedido/pedido.component';
 import { InventarioComponent } from './inventario/inventario.component';
-import { Inventario2Component } from './inventario2/inventario2.component';
+import { FormsModule } from '@angular/forms';
+import { InventarioDOSComponent } from './inventario-dos/inventario-dos.component';
+
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { Inventario2Component } from './inventario2/inventario2.component';
     ContactosComponent,
     PedidoComponent,
     InventarioComponent,
-    Inventario2Component
+    InventarioDOSComponent
+
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { Inventario2Component } from './inventario2/inventario2.component';
     BrowserAnimationsModule,
     MatIconModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
